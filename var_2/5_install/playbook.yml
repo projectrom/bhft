@@ -1,0 +1,13 @@
+---
+- name: Install peervpn package
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Install peervpn package
+    apt:
+      name: peervpn
+      state: latest
+      force: true
+      allow_unauthenticated: true
+    when: ansible_os_family == 'Debian'
